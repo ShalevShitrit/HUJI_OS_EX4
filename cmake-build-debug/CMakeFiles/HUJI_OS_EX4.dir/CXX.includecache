@@ -16,12 +16,14 @@ stdint.h
 MemoryConstants.h
 /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/MemoryConstants.h
 
-/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp
+/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/VirtualMemory.cpp
 VirtualMemory.h
 /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/VirtualMemory.h
-cstdio
+sys/types.h
 -
-cassert
+cmath
+-
+algorithm
 -
 PhysicalMemory.h
 /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/PhysicalMemory.h

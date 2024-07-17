@@ -6,7 +6,7 @@
 #include <cmath>
 #include <algorithm>
 #include "PhysicalMemory.h"
-uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame);
+word_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame);
 void
 dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance
     , int level,
@@ -32,7 +32,7 @@ bool is_valid_address(uint64_t virtualAddress)
     return true;
 }
 
-uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame)
+word_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame)
 {
     word_t max_frame = 0;
     uint64_t max_distance_frame = 0;
@@ -61,7 +61,7 @@ word_t
 handle_page_fault(int level, uint64_t& fault_address,
                   uint64_t protected_frame, uint64_t virtual_address)
 {
-    uint64_t new_frame = find_unused_frame(virtual_address / PAGE_SIZE, protected_frame);
+    word_t new_frame = find_unused_frame(virtual_address / PAGE_SIZE, protected_frame);
 
     if (level < TABLES_DEPTH - 1)
     {
