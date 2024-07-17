@@ -39,7 +39,7 @@
 			</Target>
 			<Target title="HUJI_OS_EX4">
 				<Option output="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/HUJI_OS_EX4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug"/>
+				<Option working_dir=""/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -62,7 +62,7 @@
 			</Target>
 			<Target title="HUJI_OS_EX4/fast">
 				<Option output="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/HUJI_OS_EX4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug"/>
+				<Option working_dir=""/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/MemoryConstants.h">
+			<Option target="HUJI_OS_EX4"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/PhysicalMemory.cpp">
 			<Option target="HUJI_OS_EX4"/>
 		</Unit>

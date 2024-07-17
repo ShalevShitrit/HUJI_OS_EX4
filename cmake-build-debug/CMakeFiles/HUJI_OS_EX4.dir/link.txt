@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.o CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o  -o HUJI_OS_EX4 

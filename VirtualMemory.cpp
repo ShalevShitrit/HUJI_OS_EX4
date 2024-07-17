@@ -2,11 +2,15 @@
 // Created by omer1 on 16/07/2024.
 //
 #include "VirtualMemory.h"
-
 #include <sys/types.h>
-
+#include <cmath>
+#include <algorithm>
 #include "PhysicalMemory.h"
-uint64_t
+uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame);
+void
+dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance, int level,
+    uint64_t virtual_page, uint64_t protected_frame, uint64_t& empty_frame, bool& found_empty);
+word_t
 handle_page_fault(int level, uint64_t& cur_address, uint64_t& target_frame,
                   uint64_t protected_frame);
 
@@ -27,50 +31,99 @@ bool is_valid_address(uint64_t virtualAddress)
     return true;
 }
 
-uint64_t
-handle_page_fault(int level, uint64_t& cur_address, uint64_t& fault_address,
-                  uint64_t protected_frame,uint64_t virtual_address)
+uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame)
 {
-    uint64_t max_distnce = 0;
-    uint64_t cur_distance = 0;
+    word_t max_frame = 0;
+    uint64_t max_distance_frame = 0;
+    uint64_t max_distance = 0;
+    uint64_t empty_frame = 0;
+    bool found_empty = false;
+
+    dfs(0, max_frame, max_distance_frame, max_distance, 0, virtual_page, protected_frame, empty_frame, found_empty);
+
+    if (found_empty)
+    {
+        PMwrite(empty_frame, 0);
+        return empty_frame;
+    }
+
+    if (max_frame + 1 < NUM_FRAMES)
+    {
+        return max_frame + 1;
+    }
+
+    PMevict(max_distance_frame, virtual_page);
+    return max_distance_frame;
 }
 
+word_t
+handle_page_fault(int level, uint64_t& cur_address, uint64_t& fault_address,
+                  uint64_t protected_frame, uint64_t virtual_address)
+{
+    uint64_t new_frame = find_unused_frame(virtual_address / PAGE_SIZE, protected_frame);
+
+    if (level < TABLES_DEPTH - 1)
+    {
+        clearFrame(new_frame);
+    }
+    else
+    {
+        PMrestore(new_frame, virtual_address / PAGE_SIZE);
+    }
+
+    PMwrite(fault_address, new_frame);
+    return new_frame;
+}
+
+uint64_t cyclic_distance(uint64_t page1, uint64_t page2)
+{
+    return std::min((int)NUM_PAGES - std::abs((int)page1 - (int)page2), std::abs((int)page1 - (int)page2));
+}
+
+// go over the childs of the current frame
+// for each frame check if it's not empty, if it empty and not the protected frame, return it and zero the
+// base location that points on it
+// else check the cyclic distance from the page we want  min{NUM P AGES − |page swapped in − p|, |page swapped in − p|}
+// if it greater than the current max, update the max weight and the maxw distance frame to the current frame.
+// check the values of the frames seen, is greater than the curren max frame if it does update the max frame
+// if the current frame is table in the tree, make it all zeros, else if it's leaf restore the a
+// for each one read the frame it assigned to
+// if the frame is not 0 - dfs on this child
 void
-dfs(uint64_t parent_address, uint64_t base_address, word_t& max_frame, uint64_t max_distance, uint64_t cur_distance,
-    int level,bool& found_empty)
+dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance,
+    uint64_t current_distance, int level,
+    uint64_t virtual_page, uint64_t protected_frame, uint64_t& empty_frame, bool& found_empty)
 {
     if (level == TABLES_DEPTH)
     {
-        return ;
+        return;
     }
-    // go over the childs of the current frame
-    // for each frame check if it's not empty, if it empty and not the protected frame, return it and zero the
-    // base location that points on it
-    // else check the cyclic distance from the page we want  min{NUM P AGES − |page swapped in − p|, |page swapped in − p|}
-    // if it greater than the current max, update the max weight and the maxw distance frame to the current frame.
-    // check the values of the frames seen, is greater than the curren max frame if it does update the max frame
-    // if the current frame is table in the tree, make it all zeros, else if it's leaf restore the value form the physical memory 
-    // for each one read the frame it assigned to
-    // if the frame is not 0 - dfs on this child
 
-    cur_distance = ;
-    if (cur_distance > max_distance)
-    {
-        max_distance = cur_distance;
-        max_frame = parent_address;
-    }
-    for(int i = 0;i<PAGE_SIZE;i++)
+    for (uint64_t i = 0; i < PAGE_SIZE; i++)
     {
         word_t next_address;
-        PMread(parent_address * PAGE_SIZE + i,&next_address);
-        if(next_address != 0)
+        PMread(parent_address * PAGE_SIZE + i, &next_address);
+        if (next_address != 0)
         {
-            dfs(next_address,)
-
+            uint64_t cur_distance = cyclic_distance(next_address, virtual_page);
+            if (cur_distance > max_distance)
+            {
+                max_distance = next_address;
+                max_distance = cur_distance;
+            }
+            if (next_address > max_frame)
+            {
+                max_frame = next_address;
+            }
+            dfs(next_address, max_frame, max_distance_frame, current_distance, level + 1, virtual_page, protected_frame,
+                empty_frame, found_empty);
         }
-
+        else if (!found_empty && next_address != protected_frame)
+        {
+            empty_frame = parent_address * PAGE_SIZE + i;
+            found_empty = true;
+        }
     }
-    return;
 }
 
 /*
@@ -99,8 +152,8 @@ uint64_t translate_address(uint64_t virtualAddress)
             // the frame where we found page fault
             uint64_t base_address = cur_address * PAGE_SIZE + trans_level;
             // trans level is the offset of inside the page where the fault happened
-            uint64_t next_address = handle_page_fault(level, cur_address, base_address,
-                                                      cur_address);
+            next_address = handle_page_fault(level, cur_address, base_address,
+                                             cur_address);
         }
         cur_address = next_address;
     }
@@ -123,5 +176,16 @@ int VMread(uint64_t virtualAddress, word_t* value)
     }
     uint64_t address = translate_address(virtualAddress);
     PMread(address, value);
+    return 1;
+}
+
+int VMwrite(uint64_t virtualAddress, word_t value)
+{
+    if (!is_valid_address(virtualAddress))
+    {
+        return 0;
+    }
+    uint64_t address = translate_address(virtualAddress);
+    PMwrite(address, value);
     return 1;
 }
