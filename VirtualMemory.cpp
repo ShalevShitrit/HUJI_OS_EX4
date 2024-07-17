@@ -8,11 +8,12 @@
 #include "PhysicalMemory.h"
 uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame);
 void
-dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance, int level,
+dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance
+    , int level,
     uint64_t virtual_page, uint64_t protected_frame, uint64_t& empty_frame, bool& found_empty);
 word_t
-handle_page_fault(int level, uint64_t& cur_address, uint64_t& target_frame,
-                  uint64_t protected_frame);
+handle_page_fault(int level, uint64_t& cur_address, uint64_t& fault_address,
+                  uint64_t protected_frame, uint64_t virtual_address);
 
 void clearFrame(uint64_t base_address)
 {
@@ -57,7 +58,7 @@ uint64_t find_unused_frame(uint64_t virtual_page, uint64_t protected_frame)
 }
 
 word_t
-handle_page_fault(int level, uint64_t& cur_address, uint64_t& fault_address,
+handle_page_fault(int level, uint64_t& fault_address,
                   uint64_t protected_frame, uint64_t virtual_address)
 {
     uint64_t new_frame = find_unused_frame(virtual_address / PAGE_SIZE, protected_frame);
@@ -90,8 +91,7 @@ uint64_t cyclic_distance(uint64_t page1, uint64_t page2)
 // for each one read the frame it assigned to
 // if the frame is not 0 - dfs on this child
 void
-dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance,
-    uint64_t current_distance, int level,
+dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, uint64_t& max_distance, int level,
     uint64_t virtual_page, uint64_t protected_frame, uint64_t& empty_frame, bool& found_empty)
 {
     if (level == TABLES_DEPTH)
@@ -108,17 +108,17 @@ dfs(uint64_t parent_address, word_t& max_frame, uint64_t& max_distance_frame, ui
             uint64_t cur_distance = cyclic_distance(next_address, virtual_page);
             if (cur_distance > max_distance)
             {
-                max_distance = next_address;
+                max_distance_frame = next_address;
                 max_distance = cur_distance;
             }
             if (next_address > max_frame)
             {
                 max_frame = next_address;
             }
-            dfs(next_address, max_frame, max_distance_frame, current_distance, level + 1, virtual_page, protected_frame,
+            dfs(next_address, max_frame, max_distance_frame, max_distance, level + 1, virtual_page, protected_frame,
                 empty_frame, found_empty);
         }
-        else if (!found_empty && next_address != protected_frame)
+        else if (!found_empty && parent_address != protected_frame)
         {
             empty_frame = parent_address * PAGE_SIZE + i;
             found_empty = true;
@@ -152,8 +152,8 @@ uint64_t translate_address(uint64_t virtualAddress)
             // the frame where we found page fault
             uint64_t base_address = cur_address * PAGE_SIZE + trans_level;
             // trans level is the offset of inside the page where the fault happened
-            next_address = handle_page_fault(level, cur_address, base_address,
-                                             cur_address);
+            next_address = handle_page_fault(level, base_address, cur_address,
+                                             virtualAddress);
         }
         cur_address = next_address;
     }
@@ -186,6 +186,7 @@ int VMwrite(uint64_t virtualAddress, word_t value)
         return 0;
     }
     uint64_t address = translate_address(virtualAddress);
+    // printRam();
     PMwrite(address, value);
     return 1;
 }

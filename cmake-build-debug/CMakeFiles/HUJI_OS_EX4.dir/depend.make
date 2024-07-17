@@ -6,6 +6,7 @@ CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.cpp
 CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.o: ../PhysicalMemory.h
 
 CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../MemoryConstants.h
+CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../PhysicalMemory.h
 CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../SimpleTest.cpp
 CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../VirtualMemory.h
 
