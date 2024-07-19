@@ -1,0 +1,12 @@
+omerdahan, shalevshitrit
+Omer Dahan (315466664), Shalev Shitrit (314825597)
+EX: 4
+
+FILES:
+README -- overview of the project and file descriptions.
+Makefile -- a make file for crating the static library.
+VirtualMemory.cpp -- the implementation file for the virtual memory.
+VirtualMemory.h -- header file for virtual memory.
+
+
+

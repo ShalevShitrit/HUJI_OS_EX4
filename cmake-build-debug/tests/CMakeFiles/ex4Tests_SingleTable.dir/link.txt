@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/ex4Tests_SingleTable.dir/kb_tests.cpp.o  -o ex4Tests_SingleTable  ../libSingleTableVirtualMemory.a ../lib/libgtest_main.a ../lib/libgtest.a -lpthread 

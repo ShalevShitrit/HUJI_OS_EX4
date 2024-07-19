@@ -70,22 +70,9 @@ CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/PhysicalMemory.cpp" -o CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.s
 
-CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: CMakeFiles/HUJI_OS_EX4.dir/flags.make
-CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../SimpleTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o -c "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp"
-
-CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp" > CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i
-
-CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp" -o CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s
-
 CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o: CMakeFiles/HUJI_OS_EX4.dir/flags.make
 CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o: ../VirtualMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o -c "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/VirtualMemory.cpp"
 
 CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.i: cmake_force
@@ -96,18 +83,31 @@ CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/VirtualMemory.cpp" -o CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.s
 
+CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: CMakeFiles/HUJI_OS_EX4.dir/flags.make
+CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o: ../SimpleTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o -c "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp"
+
+CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp" > CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.i
+
+CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/SimpleTest.cpp" -o CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.s
+
 # Object files for target HUJI_OS_EX4
 HUJI_OS_EX4_OBJECTS = \
 "CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.o" \
-"CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o" \
-"CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o"
+"CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o" \
+"CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o"
 
 # External object files for target HUJI_OS_EX4
 HUJI_OS_EX4_EXTERNAL_OBJECTS =
 
 HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/PhysicalMemory.cpp.o
-HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o
 HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/VirtualMemory.cpp.o
+HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/SimpleTest.cpp.o
 HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/build.make
 HUJI_OS_EX4: CMakeFiles/HUJI_OS_EX4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable HUJI_OS_EX4"
