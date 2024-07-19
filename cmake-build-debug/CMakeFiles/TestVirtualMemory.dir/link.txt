@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTestVirtualMemory.a  CMakeFiles/TestVirtualMemory.dir/VirtualMemory.cpp.o CMakeFiles/TestVirtualMemory.dir/PhysicalMemory.cpp.o
-/usr/bin/ranlib libTestVirtualMemory.a
