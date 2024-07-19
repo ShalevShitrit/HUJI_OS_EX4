@@ -12,7 +12,6 @@ TARGETS = $(OSMLIB)
 
 LIBSRC=VirtualMemory.cpp
 LIBOBJ=$(LIBSRC:.cpp=.o)
-
 TAR=tar
 TARFLAGS=-cvf
 TARNAME = ex4.tar

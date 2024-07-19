@@ -1,8 +1,34 @@
 #pragma once
 
 #include "MemoryConstants.h"
-// #include "Test/MemoryConstants_test1.h"
-// #include "Test/MemoryConstants_test2.h"
+#include <random>
+
+#ifdef INC_TESTING_CODE
+
+#include <memory>
+#include <sstream>
+
+
+class Trace {
+    static std::unique_ptr<std::stringstream> ss;
+
+public:
+
+    Trace() {
+        ss->clear();
+    }
+
+    inline static std::stringstream& stream() {
+        return *ss;
+    }
+
+    inline std::string GetContents() {
+        return ss->str();
+    }
+};
+
+
+#endif
 
 /*
  * reads an integer from the given physical address and puts it in 'value'
@@ -25,10 +51,3 @@ void PMevict(uint64_t frameIndex, uint64_t evictedPageIndex);
  * restores a page from the hard drive to the RAM
  */
 void PMrestore(uint64_t frameIndex, uint64_t restoredPageIndex);
-
-/*
- * print the current state of the ram.
- */
-void printRam();
-
-void printEvictionCounter();

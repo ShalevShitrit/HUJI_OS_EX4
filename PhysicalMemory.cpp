@@ -1,13 +1,19 @@
 #include "PhysicalMemory.h"
+#include "MemoryConstants.h"
+
+
 #include <vector>
 #include <unordered_map>
 #include <cassert>
-#include <iostream>
+#include <cstdio>
+
+
+#ifdef INC_TESTING_CODE
+std::unique_ptr<std::stringstream> Trace::ss (new std::stringstream());
+#endif
 
 
 typedef std::vector<word_t> page_t;
-
-int evict_counter = 0;
 
 std::vector<page_t> RAM;
 std::unordered_map<uint64_t, page_t> swapFile;
@@ -17,7 +23,6 @@ void initialize() {
 }
 
 void PMread(uint64_t physicalAddress, word_t* value) {
-
     if (RAM.empty())
         initialize();
 
@@ -25,11 +30,17 @@ void PMread(uint64_t physicalAddress, word_t* value) {
 
     *value = RAM[physicalAddress / PAGE_SIZE][physicalAddress
              % PAGE_SIZE];
-//    std::cout << "read " << *value << " from physical address " << physicalAddress << std::endl;
+
+#ifdef INC_TESTING_CODE
+    Trace::stream() << "PMread(" << physicalAddress << ") = " << *value << std::endl;
+#endif
  }
 
 void PMwrite(uint64_t physicalAddress, word_t value) {
-//    std::cout << "write " << value << " into physical address " << physicalAddress<< std::endl;
+#ifdef INC_TESTING_CODE
+    Trace::stream() << "PMwrite(" << physicalAddress << ", " << value << ")" << std::endl;
+#endif
+
     if (RAM.empty())
         initialize();
 
@@ -40,7 +51,10 @@ void PMwrite(uint64_t physicalAddress, word_t value) {
 }
 
 void PMevict(uint64_t frameIndex, uint64_t evictedPageIndex) {
-//    std::cout << "evict " << evictedPageIndex << " from the frame " <<frameIndex<< std::endl;
+#ifdef INC_TESTING_CODE
+    Trace::stream() << "PMevict(" << frameIndex << ", " << evictedPageIndex << ")" << std::endl;
+#endif
+
     if (RAM.empty())
         initialize();
 
@@ -49,11 +63,13 @@ void PMevict(uint64_t frameIndex, uint64_t evictedPageIndex) {
     assert(evictedPageIndex < NUM_PAGES);
 
     swapFile[evictedPageIndex] = RAM[frameIndex];
-    evict_counter++;
 }
 
 void PMrestore(uint64_t frameIndex, uint64_t restoredPageIndex) {
-//    std::cout << "restore " << restoredPageIndex << " from the hard drive to the frame " << frameIndex << std::endl;
+#ifdef INC_TESTING_CODE
+    Trace::stream() << "PMrestore(" << frameIndex << ", " << restoredPageIndex << ")" << std::endl;
+#endif
+
     if (RAM.empty())
         initialize();
 
@@ -62,26 +78,10 @@ void PMrestore(uint64_t frameIndex, uint64_t restoredPageIndex) {
     // page is not in swap file, so this is essentially
     // the first reference to this page. we can just return
     // as it doesn't matter if the page contains garbage
-    if (swapFile.find(restoredPageIndex) == swapFile.end())
+    if (swapFile.find(restoredPageIndex) == swapFile.end()) {
         return;
+    }
 
     RAM[frameIndex] = std::move(swapFile[restoredPageIndex]);
     swapFile.erase(restoredPageIndex);
-}
-
-void printRam()
-{
-    for (uint64_t  i = 0; i < RAM_SIZE; i++)
-    {
-        word_t tmp;
-        PMread(i, &tmp);
-        std::cout << i << ": " << tmp << std::endl;
-
-    }
-}
-
-
-void printEvictionCounter()
-{
-    std::cout << evict_counter << std::endl;
 }

@@ -16,10 +16,10 @@ bool is_address_legal (uint64_t virtual_address);
 uint64_t combine_binary (uint64_t cur_path, uint64_t to_add);
 word_t calculate_cyclic_distance (word_t in_page, word_t ref_page);
 void clear_frame (word_t frame);
-void process_leaf (dfsRes *result, word_t frame, uint64_t page, uint64_t path);
+void process_leaf ( word_t frame, uint64_t page, uint64_t path,dfsRes *result);
 void dfs (int level, uint64_t page, word_t frame, uint64_t parent,
           dfsRes *result, uint64_t path);
-void remove_frame (word_t target_frame, word_t current_frame, int level);
+void remove_frame (int level , word_t target_frame, word_t current_frame);
 word_t locate_available_frame (uint64_t parent, uint64_t page);
 word_t resolve_frame (uint64_t virtualAddress);
 
@@ -56,7 +56,7 @@ void clear_frame (word_t frame)
   }
 }
 
-void process_leaf (dfsRes *result, word_t frame, uint64_t page, uint64_t path)
+void process_leaf (word_t frame, uint64_t page, uint64_t path,dfsRes *result)
 {
   if (frame > result->max_frame_taken)
     result->max_frame_taken = frame;
@@ -75,7 +75,7 @@ void dfs (int level, uint64_t page, word_t frame, uint64_t parent,
 {
   if (level == TABLES_DEPTH)
   {
-    process_leaf (result, frame, page, path);
+    process_leaf ( frame, page, path,result);
     return;
   }
 
@@ -103,7 +103,7 @@ void dfs (int level, uint64_t page, word_t frame, uint64_t parent,
     result->max_frame_taken = frame;
 }
 
-void remove_frame (word_t target_frame, word_t current_frame, int level)
+void remove_frame (int level,word_t target_frame, word_t current_frame )
 {
   if (level == TABLES_DEPTH) return;
 
@@ -118,7 +118,7 @@ void remove_frame (word_t target_frame, word_t current_frame, int level)
       PMwrite (current_frame * PAGE_SIZE + i, INITIAL_FRAME_VALUE);
       return;
     }
-    remove_frame (target_frame, child, level + 1);
+    remove_frame (level + 1,target_frame, child );
   }
 }
 
@@ -129,7 +129,7 @@ word_t locate_available_frame (uint64_t parent, uint64_t page)
 
   if (result.empty_frame != NUM_FRAMES)
   {
-    remove_frame (result.empty_frame, START_FRAME, 0);
+    remove_frame (0, result.empty_frame, START_FRAME );
     return result.empty_frame;
   }
   if (result.max_frame_taken < NUM_FRAMES - 1)
@@ -137,7 +137,7 @@ word_t locate_available_frame (uint64_t parent, uint64_t page)
     return result.max_frame_taken + 1;
   }
   PMevict (result.max_cyclic_frame, result.max_cyclic_page);
-  remove_frame (result.max_cyclic_frame, START_FRAME, 0);
+  remove_frame (0, result.max_cyclic_frame, START_FRAME);
   return result.max_cyclic_frame;
 }
 

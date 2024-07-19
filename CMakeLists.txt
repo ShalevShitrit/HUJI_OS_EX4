@@ -1,27 +1,25 @@
-cmake_minimum_required(VERSION 3.16.3)
-project(HUJI_OS_EX4)
-
-set(CMAKE_CXX_STANDARD 11)
-
-include_directories(.)
-SET(GCC_COVERAGE_COMPILE_FLAGS)
-add_executable(HUJI_OS_EX4
-     MemoryConstants.h
-        PhysicalMemory.h
-        PhysicalMemory.cpp
-        VirtualMemory.cpp
-        VirtualMemory.h
-        SimpleTest.cpp
-       # Test/test2_write_one_page_twice_and_read.cpp
-        #Test/MemoryConstants_test2.h
-
-)
-
+#cmake_minimum_required(VERSION 3.16.3)
+#project(HUJI_OS_EX4)
 #
+#set(CMAKE_CXX_STANDARD 11)
 #
+#include_directories(.)
+#SET(GCC_COVERAGE_COMPILE_FLAGS)
+#add_executable(HUJI_OS_EX4
+#        PhysicalMemory.h
+#        PhysicalMemory.cpp
+#        VirtualMemory.cpp
+#        VirtualMemory.h
+##        MemoryConstants.h
+##        SimpleTest.cpp
+#        #        Test/test2_write_one_page_twice_and_read.cpp
+#        #        Test/MemoryConstants_test2.h
+#        Test/test1_write_read_all_virtual_memory.cpp
+#        Test/MemoryConstants_test1.h
 #
-#[[
-#
+#)
+
+
 cmake_minimum_required(VERSION 3.1)
 
 
@@ -83,4 +81,3 @@ createVMTarget(NoEvictionVirtualMemory NO_EVICTION_CONSTANTS)
 
 # Add tests
 add_subdirectory(tests)
-]]

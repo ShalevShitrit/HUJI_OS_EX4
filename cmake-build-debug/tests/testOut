@@ -9,12 +9,12 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
 [       OK ] RandomTests.Random_Addresses_Random_Values (2 ms)
-[----------] 1 test from RandomTests (2 ms total)
+[----------] 1 test from RandomTests (3 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
 [       OK ] ErrorChecks.ErrorChecks (0 ms)
-[----------] 1 test from ErrorChecks (0 ms total)
+[----------] 1 test from ErrorChecks (2 ms total)
 
 [----------] 10 tests from RandomTests/ReadWriteTestFixture
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MostBasic_from_0_to_1_increment_1_initializationMethod_0
@@ -37,10 +37,10 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_32_increment_8_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_32_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_32_increment_1_initializationMethod_2 (0 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (2 ms total)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (5 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 4 test suites ran. (7 ms total)
+[==========] 13 tests from 4 test suites ran. (14 ms total)
 [  PASSED  ] 13 tests.
 Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/tests/googletest-src/googletest/src/gtest_main.cc
 [==========] Running 14 tests from 4 test suites.
@@ -49,18 +49,18 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [ RUN      ] SimpleTests.Can_Read_And_Write_Memory_Once
 [       OK ] SimpleTests.Can_Read_And_Write_Memory_Once (0 ms)
 [ RUN      ] SimpleTests.Can_Read_Then_Write_Memory_Original
-[       OK ] SimpleTests.Can_Read_Then_Write_Memory_Original (11 ms)
-[----------] 2 tests from SimpleTests (12 ms total)
+[       OK ] SimpleTests.Can_Read_Then_Write_Memory_Original (21 ms)
+[----------] 2 tests from SimpleTests (23 ms total)
 
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
-[       OK ] RandomTests.Random_Addresses_Random_Values (6463 ms)
-[----------] 1 test from RandomTests (6464 ms total)
+[       OK ] RandomTests.Random_Addresses_Random_Values (11664 ms)
+[----------] 1 test from RandomTests (11665 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
 [       OK ] ErrorChecks.ErrorChecks (0 ms)
-[----------] 1 test from ErrorChecks (1 ms total)
+[----------] 1 test from ErrorChecks (0 ms total)
 
 [----------] 10 tests from RandomTests/ReadWriteTestFixture
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MostBasic_from_0_to_64_increment_1_initializationMethod_0
@@ -70,23 +70,23 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MostBasic_from_0_to_64_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MostBasic_from_0_to_64_increment_1_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_0
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_0 (1 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_0 (2 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_1
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_1 (1 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_1 (2 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_2 (1 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_2 (2 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_pageSizeIncrement_from_0_to_1048576_increment_16_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_pageSizeIncrement_from_0_to_1048576_increment_16_initializationMethod_2 (2294 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_pageSizeIncrement_from_0_to_1048576_increment_16_initializationMethod_2 (3752 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_1048576_increment_8_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_1048576_increment_8_initializationMethod_2 (3703 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_1048576_increment_8_initializationMethod_2 (6675 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_1048576_increment_4_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_1048576_increment_4_initializationMethod_2 (2685 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_1048576_increment_4_initializationMethod_2 (4363 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1048576_increment_1_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1048576_increment_1_initializationMethod_2 (4100 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (12801 ms total)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1048576_increment_1_initializationMethod_2 (6139 ms)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (20952 ms total)
 
 [----------] Global test environment tear-down
-[==========] 14 tests from 4 test suites ran. (19285 ms total)
+[==========] 14 tests from 4 test suites ran. (32646 ms total)
 [  PASSED  ] 14 tests.
 Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/tests/googletest-src/googletest/src/gtest_main.cc
 [==========] Running 13 tests from 4 test suites.
@@ -94,12 +94,12 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [----------] 1 test from SimpleTests
 [ RUN      ] SimpleTests.Can_Read_Then_Write_Memory_Original
 [       OK ] SimpleTests.Can_Read_Then_Write_Memory_Original (0 ms)
-[----------] 1 test from SimpleTests (0 ms total)
+[----------] 1 test from SimpleTests (1 ms total)
 
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
-[       OK ] RandomTests.Random_Addresses_Random_Values (68 ms)
-[----------] 1 test from RandomTests (69 ms total)
+[       OK ] RandomTests.Random_Addresses_Random_Values (105 ms)
+[----------] 1 test from RandomTests (106 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
@@ -122,15 +122,15 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_pageSizeIncrement_from_0_to_128_increment_4_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_pageSizeIncrement_from_0_to_128_increment_4_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_128_increment_2_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_128_increment_2_initializationMethod_2 (0 ms)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_halfPageSizeIncrement_from_0_to_128_increment_2_initializationMethod_2 (1 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_128_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_128_increment_1_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_128_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_128_increment_1_initializationMethod_2 (0 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (5 ms total)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (14 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 4 test suites ran. (79 ms total)
+[==========] 13 tests from 4 test suites ran. (127 ms total)
 [  PASSED  ] 13 tests.
 Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/tests/googletest-src/googletest/src/gtest_main.cc
 [==========] Running 13 tests from 4 test suites.
@@ -142,8 +142,8 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
-[       OK ] RandomTests.Random_Addresses_Random_Values (44 ms)
-[----------] 1 test from RandomTests (45 ms total)
+[       OK ] RandomTests.Random_Addresses_Random_Values (80 ms)
+[----------] 1 test from RandomTests (81 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
@@ -170,11 +170,11 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_1024_increment_8_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_1024_increment_8_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1024_increment_1_initializationMethod_2
-[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1024_increment_1_initializationMethod_2 (0 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (7 ms total)
+[       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_1024_increment_1_initializationMethod_2 (1 ms)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (12 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 4 test suites ran. (58 ms total)
+[==========] 13 tests from 4 test suites ran. (100 ms total)
 [  PASSED  ] 13 tests.
 Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX4/cmake-build-debug/tests/googletest-src/googletest/src/gtest_main.cc
 [==========] Running 14 tests from 5 test suites.
@@ -191,8 +191,8 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
-[       OK ] RandomTests.Random_Addresses_Random_Values (64 ms)
-[----------] 1 test from RandomTests (65 ms total)
+[       OK ] RandomTests.Random_Addresses_Random_Values (84 ms)
+[----------] 1 test from RandomTests (86 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
@@ -232,10 +232,10 @@ Unable to run this test configuration as the parameters are too big for the give
 [  SKIPPED ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_32_increment_0_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_32_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_32_increment_1_initializationMethod_2 (0 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (4 ms total)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (12 ms total)
 
 [----------] Global test environment tear-down
-[==========] 14 tests from 5 test suites ran. (75 ms total)
+[==========] 14 tests from 5 test suites ran. (106 ms total)
 [  PASSED  ] 10 tests.
 [  SKIPPED ] 4 tests, listed below:
 [  SKIPPED ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_112_increment_1_initializationMethod_0
@@ -248,12 +248,12 @@ Running main() from /mnt/c/Users/omer1/Desktop/degree/year 2/sem 2/OS/HUJI_OS_EX
 [----------] 1 test from SimpleTests
 [ RUN      ] SimpleTests.Can_Read_Then_Write_Memory_Original
 [       OK ] SimpleTests.Can_Read_Then_Write_Memory_Original (0 ms)
-[----------] 1 test from SimpleTests (0 ms total)
+[----------] 1 test from SimpleTests (1 ms total)
 
 [----------] 1 test from RandomTests
 [ RUN      ] RandomTests.Random_Addresses_Random_Values
-[       OK ] RandomTests.Random_Addresses_Random_Values (2 ms)
-[----------] 1 test from RandomTests (2 ms total)
+[       OK ] RandomTests.Random_Addresses_Random_Values (5 ms)
+[----------] 1 test from RandomTests (6 ms total)
 
 [----------] 1 test from ErrorChecks
 [ RUN      ] ErrorChecks.ErrorChecks
@@ -290,10 +290,10 @@ Unable to run this test configuration as the parameters are too big for the give
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_quarterPageSizeIncrement_from_0_to_64_increment_2_initializationMethod_2 (0 ms)
 [ RUN      ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_64_increment_1_initializationMethod_2
 [       OK ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/ManyAddresses_always_inc1_from_0_to_64_increment_1_initializationMethod_2 (0 ms)
-[----------] 10 tests from RandomTests/ReadWriteTestFixture (2 ms total)
+[----------] 10 tests from RandomTests/ReadWriteTestFixture (10 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 4 test suites ran. (7 ms total)
+[==========] 13 tests from 4 test suites ran. (24 ms total)
 [  PASSED  ] 10 tests.
 [  SKIPPED ] 3 tests, listed below:
 [  SKIPPED ] RandomTests/ReadWriteTestFixture.Deterministic_Addresses_Random_Values/MoreFrames_from_0_to_896_increment_1_initializationMethod_0
